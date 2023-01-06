@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor solution](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor solution](https://www.frontendmentor.io/solutions/base-apparel-coming-soon-page-FXYFhHhgKJ)
 - Live Site URL: [Live site](https://69kwan69.github.io/aase-apparel-coming-soon-page)
 
 ### Built with
