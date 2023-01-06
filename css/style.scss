@@ -1,0 +1,257 @@
+// Initial settings
+$clr-primary-400: hsl(0, 93%, 68%);
+$clr-primary-100: hsl(0, 36%, 70%);
+
+$clr-neutral-900: hsl(0, 6%, 24%);
+$clr-gradient-400: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+$clr-gradient-100: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+
+$ff-base: 'Josefin Sans', sans-serif;
+
+$fw-bold: 600;
+$fw-regular: 400;
+$fw-thin: 300;
+
+$content-spacing: 2rem;
+$content-padding: 2rem;
+
+
+// CSS reset
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    // border: 1px solid;
+}
+
+html, body {
+    // height: 100%;
+    min-height: 100vh;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+
+// General settings
+html {
+    font-family: $ff-base;
+    color: $clr-primary-100;
+}
+
+main {
+    text-align: center;
+    display: grid;
+}
+
+footer {
+    display: none;
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+
+        a {
+            color: hsl(228, 45%, 44%);
+        }
+    }
+}
+
+
+// Utilities styling
+.grid-row-span-2 {
+    grid-row: span 2;
+}
+
+
+// Styling
+.logo {
+    padding: $content-padding;
+
+    img {
+        width: 100px;
+    }
+}
+
+.hero-image {
+    width: 100%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $content-spacing;
+
+    padding: $content-padding;
+    margin: 2rem 0;
+
+    .title {
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        line-height: 2.7rem;
+        font-size: 2.5rem;
+        font-weight: $fw-thin;
+
+        .bold {
+            font-weight: $fw-bold;
+            color: $clr-neutral-900;
+        }
+    }
+    
+    form {
+        $email-box-height-padding: .5em;
+        $email-box-width-padding: 1.5em;
+        $submit-btn-width-padding: 1.7em;
+
+        position: relative;
+    
+        .input-email {
+            color: $clr-primary-100;
+            outline: none;
+            border: 1px solid $clr-primary-100;
+            border-radius: 2em;
+            padding: $email-box-height-padding $email-box-width-padding;
+            width: 100%;
+            position: relative;
+            font-size: 16px;
+        }
+    
+        .submit-btn {
+            background: $clr-gradient-400 no-repeat center;
+
+            outline: none;
+            border: none;
+            border-radius: 2em;
+
+            padding: calc($email-box-height-padding + .23em) $submit-btn-width-padding;
+            position: absolute;
+            top: 50%;
+            right: 0;
+
+            transform: translateY(-50%);
+            box-shadow: $clr-primary-100 0px 7px 20px -5px;
+            cursor: pointer;
+        }
+    
+        .submit-btn:is(:hover, :focus) {
+            background: hsl(0, 80%, 86%) no-repeat center;
+            box-shadow: $clr-primary-100 0px 15px 25px -5px;
+        }
+
+        // Form validation 
+        &.error {
+            &::after {
+                content: '';
+                background: url('../images/icon-error.svg') no-repeat center;
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                right: calc($submit-btn-width-padding*2 + .7em);
+            }
+
+            &::before {
+                content: 'Please provide a valid email';
+                position: absolute;
+                bottom: -1.8em;
+                left: $email-box-width-padding;
+                color: $clr-primary-400;
+            }
+
+            .input-email {
+                border: 2px solid $clr-primary-400;
+            }
+        }
+    }
+}
+
+
+// Desktop styling
+@media (min-width: 768px) {
+    $content-padding: 8rem;
+
+    main {
+        background: url("../images/bg-pattern-desktop.svg") no-repeat center/cover;
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .logo {
+        padding: 3rem $content-padding;
+
+        img {
+            width: 158px;
+        }
+    }
+
+    .hero-image {
+        height: 100vh;
+    }
+
+    .content {
+        text-align: left;
+        margin-top: initial;
+        padding: 0 $content-padding;
+        // border: 1px solid;
+
+        .title {
+            font-size: 4rem;
+            letter-spacing: 15px;
+            line-height: 4rem;
+        }
+        
+        form {
+            $email-box-height-padding: 1em;
+            $email-box-width-padding: 2em;
+            $submit-btn-width-padding: 3em;
+
+            .input-email {
+                padding: $email-box-height-padding $email-box-width-padding;
+            }
+
+            .submit-btn, .submit-btn:is(:hover, :focus) {
+                padding: calc($email-box-height-padding + .23em) $submit-btn-width-padding;
+                background-size: initial;
+            }
+
+            &.error {
+                &::after {
+                    right: calc($submit-btn-width-padding*2 + .7em);
+                }
+
+                &::before {
+                    left: $email-box-width-padding;
+                }
+            }
+        }
+    }
+
+}
+
+// .content, .logo, .hero-image {
+//     border: 1px solid;
+// }

@@ -1,0 +1,180 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(0deg, 36%, 70%);
+}
+
+main {
+  text-align: center;
+  display: grid;
+}
+
+footer {
+  display: none;
+}
+footer .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+footer .attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+.grid-row-span-2 {
+  grid-row: span 2;
+}
+
+.logo {
+  padding: 2rem;
+}
+.logo img {
+  width: 100px;
+}
+
+.hero-image {
+  width: 100%;
+  overflow: hidden;
+}
+.hero-image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.content .title {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  line-height: 2.7rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.content .title .bold {
+  font-weight: 600;
+  color: hsl(0deg, 6%, 24%);
+}
+.content form {
+  position: relative;
+}
+.content form .input-email {
+  color: hsl(0deg, 36%, 70%);
+  outline: none;
+  border: 1px solid hsl(0deg, 36%, 70%);
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
+  width: 100%;
+  position: relative;
+  font-size: 16px;
+}
+.content form .submit-btn {
+  background: linear-gradient(135deg, hsl(0deg, 80%, 86%), hsl(0deg, 74%, 74%)) no-repeat center;
+  outline: none;
+  border: none;
+  border-radius: 2em;
+  padding: 0.73em 1.7em;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  box-shadow: hsl(0deg, 36%, 70%) 0px 7px 20px -5px;
+  cursor: pointer;
+}
+.content form .submit-btn:is(:hover, :focus) {
+  background: hsl(0deg, 80%, 86%) no-repeat center;
+  box-shadow: hsl(0deg, 36%, 70%) 0px 15px 25px -5px;
+}
+.content form.error::after {
+  content: "";
+  background: url("../images/icon-error.svg") no-repeat center;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 4.1em;
+}
+.content form.error::before {
+  content: "Please provide a valid email";
+  position: absolute;
+  bottom: -1.8em;
+  left: 1.5em;
+  color: hsl(0deg, 93%, 68%);
+}
+.content form.error .input-email {
+  border: 2px solid hsl(0deg, 93%, 68%);
+}
+
+@media (min-width: 768px) {
+  main {
+    background: url("../images/bg-pattern-desktop.svg") no-repeat center/cover;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  .logo {
+    padding: 3rem 8rem;
+  }
+  .logo img {
+    width: 158px;
+  }
+  .hero-image {
+    height: 100vh;
+  }
+  .content {
+    text-align: left;
+    margin-top: initial;
+    padding: 0 8rem;
+  }
+  .content .title {
+    font-size: 4rem;
+    letter-spacing: 15px;
+    line-height: 4rem;
+  }
+  .content form .input-email {
+    padding: 1em 2em;
+  }
+  .content form .submit-btn, .content form .submit-btn:is(:hover, :focus) {
+    padding: 1.23em 3em;
+    background-size: initial;
+  }
+  .content form.error::after {
+    right: 6.7em;
+  }
+  .content form.error::before {
+    left: 2em;
+  }
+}/*# sourceMappingURL=style.css.map */
